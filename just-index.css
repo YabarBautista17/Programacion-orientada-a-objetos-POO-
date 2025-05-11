@@ -1,0 +1,25 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 18px;
+}
+
+.contenido-adicional {
+    background-image: url('https://i.pinimg.com/736x/4e/26/d9/4e26d9f1df89ca907647582826c8980f.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.contenido-adicional h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.contenido-adicional p {
+    font-size: 20px;
+}

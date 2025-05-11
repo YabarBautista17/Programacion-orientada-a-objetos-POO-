@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>POO</title>
+    <link rel="stylesheet" href="/Nav/nav.css" />
+    <link rel="stylesheet" href="just-index.css" /> 
+</head>
+  <body>
+    <nav class="nave">
+        <div class="perfil-container">
+          <img
+            class="imgperf"
+            src="https://i.pinimg.com/736x/26/7e/3b/267e3b3984f673616bf30e439fb184d0.jpg"
+            alt="Profile Image"
+          />
+          <div class="Per-inf">
+            <p>Facultad: Ingenieria Electronica</p>
+            <p>Asignatura: Programacion Orientada a Objetos</p>
+            <p>Estudiante: Yabar Bautista Josue Martin</p>
+          </div>
+        </div>
+      
+        <div class="hora-actual">
+          <p id="hora"></p>
+          <script>
+            function actualizarHora() {
+              const horaElemento = document.getElementById("hora");
+              const ahora = new Date();
+              horaElemento.textContent = ahora.toLocaleTimeString();
+            }
+            setInterval(actualizarHora, 1000);
+            actualizarHora();
+          </script>
+        </div>
+      
+        <div class="barra-de-busqueda">
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="/Nav/Tareas.html">Tareas</a></li>
+            <li><a href="/Nav/Es-de-Es.html">Estrategias de estudio</a></li>
+            <li><a href="/Nav/Mo-de-ca.html">Motivacion de carrera</a></li>
+          </ul>
+        </div>
+    </nav>
+      
+    <!-- Contenido adicional con fondo de imagen -->
+    <div class="contenido-adicional">
+      <h1>Bienvenido a Programación Orientada a Objetos</h1>
+      <p>Este es un espacio para aprender y crecer.</p>
+    </div>
+
+    
+  </body>
+</html>

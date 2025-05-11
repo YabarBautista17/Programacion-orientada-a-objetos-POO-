@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>POO</title>
+    <link rel="stylesheet" href="/Nav/nav.css" />
+    <link rel="stylesheet" href="/Nav/weeks/Aslideweeks.css" />
+    <link rel="stylesheet" href="/Nav/weeks/semana1.css" />
+  </head>
+  <body>
+    <nav class="nave">
+      <div class="perfil-container">
+        <img
+          class="imgperf"
+          src="https://i.pinimg.com/736x/26/7e/3b/267e3b3984f673616bf30e439fb184d0.jpg"
+          alt="Profile Image"
+        />
+        <div class="Per-inf">
+          <p>Facultad: Ingenieria Electronica</p>
+          <p>Asignatura: Programacion Orientada a Objetos</p>
+          <p>Estudiante: Yabar Bautista Josue Martin</p>
+        </div>
+      </div>
+
+      <div class="hora-actual">
+        <p id="hora"></p>
+        <script>
+          function actualizarHora() {
+            const horaElemento = document.getElementById("hora");
+            const ahora = new Date();
+            horaElemento.textContent = ahora.toLocaleTimeString();
+          }
+          setInterval(actualizarHora, 1000);
+          actualizarHora();
+        </script>
+      </div>
+
+      <div class="barra-de-busqueda">
+        <ul>
+          <li><a href="/index.html">Inicio</a></li>
+          <li><a href="/Nav/Tareas.html">Tareas</a></li>
+          <li><a href="/Nav/Es-de-Es.html">Estrategias de estudio</a></li>
+          <li><a href="/Nav/Mo-de-ca.html">Motivacion de carrera</a></li>
+        </ul>
+      </div>
+    </nav>
+      <!-- SIDEBAR DE SEMANAS -->
+  <aside class="sidebar">
+    <ul class="weeks">
+      <!-- Genera una línea por semana, adaptando las rutas -->
+      <li><a href="Semana1.html">Semana 1</a></li>
+      <li><a href="Semana2.html">Semana 2</a></li>
+      <li><a href="Semana3.html">Semana 3</a></li>
+      <li><a href="Semana4.html">Semana 4</a></li>
+      <li><a href="Semana5.html">Semana 5</a></li>
+      <li><a href="Semana6.html">Semana 6</a></li>
+      <li><a href="Semana7.html">Semana 7 (Par)</a></li>
+      <li><a href="Semana8.html">Semana 8</a></li>
+      <li><a href="Semana9.html">Semana 9</a></li>
+      <li><a href="Semana10.html">Semana 10</a></li>
+      <li><a href="Semana11.html">Semana 11</a></li>
+      <li><a href="Semana12.html">Semana 12</a></li>
+      <li><a href="Semana13.html">Semana 13</a></li>
+      <li><a href="Semana14.html">Semana 14(Par)</a></li>
+    </ul>
+  </aside>
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="contenido-libre">
+<div class="preguntas-vertical">
+  <!-- Pregunta 01 -->
+  <div class="pregunta">
+    <p><strong>01.-</strong> ¿Cuál es la diferencia fundamental entre la programación estructurada y la orientada a objetos?</p>
+    <div class="respuesta">
+      <!-- Explicación -->
+      <p>
+        La programación estructurada se basa en funciones globales y estructuras de control (como bucles y condicionales) que operan sobre datos, enfatizando el flujo de ejecución.  
+        La POO, en cambio, agrupa datos y comportamiento en “objetos” que interactúan entre sí, promoviendo encapsulamiento, modularidad y reutilización de código.
+        En la POO, los objetos son instancias de clases que pueden contener tanto datos (atributos) como métodos (funciones), permitiendo una representación más cercana a la realidad.
+      </p>
+      <!-- Ejemplos -->
+      <pre><code class="codigo">// Ejemplo 1: C (estructurada)
+#include &lt;stdio.h&gt;
+struct Punto { int x, y; };
+
+void moverPunto(struct Punto* p, int dx, int dy) {
+    p->x += dx;
+    p->y += dy;
+}
+
+int main() {
+    struct Punto p = {0, 0};
+    moverPunto(&p, 5, 3);
+    printf("P: (%d, %d)\n", p.x, p.y);
+    return 0;
+}</code></pre>
+
+      <pre><code class="codigo">// Ejemplo 2: C++ (POO)
+#include &lt;iostream&gt;
+
+class Punto {
+  int x, y;
+public:
+  Punto(int x0, int y0): x(x0), y(y0) {}
+  void mover(int dx, int dy) { x += dx; y += dy; }
+  void imprimir() const { std::cout << "(" << x << ", " << y << ")\n"; }
+};
+
+int main() {
+  Punto p(0,0);
+  p.mover(5,3);
+  p.imprimir();
+  return 0;
+}</code></pre>
+
+      <pre><code class="codigo"># Ejemplo 3: Python (POO)
+class Punto:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def mover(self, dx, dy):
+        self.x += dx
+        self.y += dy
+
+    def __str__(self):
+        return f"({self.x}, {self.y})"
+
+p = Punto(0,0)
+p.mover(5,3)
+print(p)</code></pre>
+    </div>
+  </div>
+
+  <!-- Pregunta 02 -->
+  <div class="pregunta">
+    <p><strong>02.-</strong> ¿Cómo se define una clase en Visual Studio C++ y cómo se crea un objeto a partir de ella?</p>
+    <div class="respuesta">
+      <p>
+        En C++ declaras una clase con la palabra clave <code>class</code>, indicando atributos y métodos dentro de llaves, seguida de un punto y coma.  
+        Para instanciarla, defines una variable de ese tipo o usas <code>new</code> para asignación dinámica.
+        En Visual Studio, puedes crear un archivo de encabezado (.h) para la declaración y un archivo de implementación (.cpp) para la definición de métods.
+        Esto permite una mejor organización del código y facilita la reutilización.
+        En el archivo de encabezado defines la clase y sus métodos, mientras que en el archivo de implementación defines la lógica de los métodos.
+      </p>
+      <pre><code class="codigo">// Ejemplo 1: definición y creación directa
+#include &lt;iostream&gt;
+class Persona {
+public:
+  std::string nombre;
+  Persona(const std::string& n): nombre(n) {}
+  void saludar() { std::cout << "Hola, soy " << nombre << std::endl; }
+};
+
+int main() {
+  Persona p("Ana");
+  p.saludar();
+  return 0;
+}</code></pre>
+
+      <pre><code class="codigo">// Ejemplo 2: separación en .h/.cpp
+// Persona.h
+#pragma once
+#include &lt;string&gt;
+class Persona {
+  std::string nombre;
+public:
+  Persona(const std::string&);
+  void saludar();
+};
+
+// Persona.cpp
+#include "Persona.h"
+#include &lt;iostream&gt;
+Persona::Persona(const std::string& n): nombre(n) {}
+void Persona::saludar() { std::cout << "Hola, soy " << nombre << "\n"; }
+
+// main.cpp
+#include "Persona.h"
+int main() {
+  Persona p1("Luis");
+  p1.saludar();
+  return 0;
+}</code></pre>
+
+      <pre><code class="codigo">// Ejemplo 3: punteros e instanciación dinámica
+#include &lt;iostream&gt;
+class Cuenta {
+public:
+  double saldo;
+  Cuenta(double s): saldo(s) {}
+  void mostrar() { std::cout << "Saldo: " << saldo << std::endl; }
+};
+
+int main() {
+  Cuenta* c = new Cuenta(1500.0);
+  c->mostrar();
+  delete c;
+  return 0;
+}</code></pre>
+    </div>
+  </div>
+
+  <!-- Pregunta 03 -->
+  <div class="pregunta">
+    <p><strong>03.-</strong> ¿Qué beneficios aporta el encapsulamiento en el desarrollo de software?</p>
+    <div class="respuesta">
+      <p>
+        El encapsulamiento agrupa variables y métodos en una clase, ocultando los detalles internos y controlando el acceso al estado del objeto.  
+        Esto mejora la seguridad, evita modificaciones inesperadas y facilita la mantenibilidad al permitir cambios internos sin afectar el código externo.
+        Además, promueve la modularidad y la reutilización de código, ya que los objetos pueden interactuar a través de interfaces bien definidas.
+      </p>
+      <pre><code class="codigo">// Ejemplo 1: C++ con getters/setters
+#include &lt;iostream&gt;
+class Cuenta {
+  double saldo;
+public:
+  Cuenta(double s): saldo(s) {}
+  void depositar(double m) { if(m>0) saldo+=m; }
+  double getSaldo() const { return saldo; }
+};
+
+int main() {
+  Cuenta c(100);
+  c.depositar(50);
+  std::cout << c.getSaldo() << std::endl;
+}</code></pre>
+
+      <pre><code class="codigo">// Ejemplo 2: Java con private
+public class Cuenta {
+  private double saldo;
+  public Cuenta(double s) { saldo = s; }
+  public void depositar(double m) { if(m>0) saldo+=m; }
+  public double getSaldo() { return saldo; }
+}
+
+class Main {
+  public static void main(String[] args) {
+    Cuenta c = new Cuenta(200);
+    c.depositar(100);
+    System.out.println(c.getSaldo());
+  }
+}</code></pre>
+
+      <pre><code class="codigo"># Ejemplo 3: Python con @property
+class Cuenta:
+    def __init__(self, s):
+        self.__saldo = s
+
+    @property
+    def saldo(self):
+        return self.__saldo
+
+    def depositar(self, m):
+        if m > 0:
+            self.__saldo += m
+
+c = Cuenta(300)
+c.depositar(150)
+print(c.saldo)  # 450</code></pre>
+    </div>
+  </div>
+
+  <!-- Pregunta 04 -->
+  <div class="pregunta">
+    <p><strong>04.-</strong> ¿Cómo permite la herencia reutilizar código en la POO?</p>
+    <div class="respuesta">
+      <p>
+        La herencia habilita que una clase derivada extienda los atributos y métodos de su clase base, evitando duplicar lógica común y facilitando la extensión de funcionalidades.
+        Esto permite crear jerarquías de clases donde las subclases heredan y pueden sobrescribir o extender el comportamiento de la clase base, promoviendo la reutilización y la organización del código.
+        La herencia simple implica una única clase base, mientras que la herencia múltiple permite que una clase derive de múltiples clases base, aunque puede complicar la resolución de ambigüedades.
+      </p>
+      <pre><code class="codigo">// Ejemplo 1: C++ herencia simple
+#include &lt;iostream&gt;
+class Animal {
+public:
+  void comer() { std::cout << "Este animal come.\n"; }
+};
+
+class Perro : public Animal {
+public:
+  void ladrar() { std::cout << "Guau!\n"; }
+};
+
+int main() {
+  Perro p;
+  p.comer();
+  p.ladrar();
+}</code></pre>
+
+      <pre><code class="codigo">// Ejemplo 2: Java con extends
+public class Animal {
+  public void comer() { System.out.println("Animal come."); }
+}
+
+public class Gato extends Animal {
+  public void maullar() { System.out.println("Miau"); }
+}
+
+class Main {
+  public static void main(String[] args) {
+    Gato g = new Gato();
+    g.comer();
+    g.maullar();
+  }
+}</code></pre>
+
+      <pre><code class="codigo"># Ejemplo 3: Python con subclase
+class Animal:
+    def comer(self):
+        print("Animal come")
+
+class Pajaro(Animal):
+    def volar(self):
+        print("Pájaro vuela")
+
+p = Pajaro()
+p.comer()
+p.volar()</code></pre>
+    </div>
+  </div>
+
+  <!-- Pregunta 05 -->
+  <div class="pregunta">
+    <p><strong>05.-</strong> ¿Qué es el polimorfismo y cómo se implementa en Visual Studio C++?</p>
+    <div class="respuesta">
+      <p>
+        El polimorfismo permite invocar un mismo método en distintas clases derivadas a través de una referencia común, resolviendo la llamada al método concreto en tiempo de ejecución con funciones virtuales.
+        En Visual Studio C++, se logra mediante el uso de punteros o referencias a la clase base, y la declaración de métodos virtuales en la clase base que pueden ser sobrescritos en las subclases.
+        Esto permite que el mismo código funcione con diferentes tipos de objetos, aumentando la flexibilidad y la extensibilidad del software.
+      </p>
+      <pre><code class="codigo">// Ejemplo 1: C++ virtual
+#include &lt;iostream&gt;
+class Figura {
+public:
+  virtual void dibujar() { std::cout << "Figura genérica\n"; }
+};
+
+class Circulo : public Figura {
+public:
+  void dibujar() override { std::cout << "Dibujando círculo\n"; }
+};
+
+int main() {
+  Figura* f = new Circulo();
+  f->dibujar();
+  delete f;
+}</code></pre>
+
+      <pre><code class="codigo">// Ejemplo 2: Java interfaces
+interface Animal { void sonido(); }
+
+class Perro implements Animal {
+  public void sonido() { System.out.println("Guau"); }
+}
+
+class Main {
+  public static void main(String[] args) {
+    Animal a = new Perro();
+    a.sonido();
+  }
+}</code></pre>
+
+      <pre><code class="codigo"># Ejemplo 3: Python dinámico
+class Mamifero:
+    def hablar(self): pass
+
+class Perro(Mamifero):
+    def hablar(self): print("Guau")
+
+class Vaca(Mamifero):
+    def hablar(self): print("Muu")
+
+for animal in (Perro(), Vaca()):
+    animal.hablar()</code></pre>
+    </div>
+  </div>
+
+  <!-- Pregunta 06 -->
+  <div class="pregunta">
+    <p><strong>06.-</strong> ¿Cómo ayuda la abstracción a simplificar sistemas complejos?</p>
+    <div class="respuesta">
+      <p>
+        La abstracción define interfaces o clases base que exponen sólo métodos esenciales, ocultando la implementación interna y facilitando el manejo de la complejida de del sistema.
+        Esto permite a los desarrolladores centrarse en la funcionalidad sin preocuparse por los detalles de implementación, promoviendo la reutilización y la mantenibilidad del código.
+        En C++, se logra mediante clases abstractas con métodos virtuales puros, mientras que en Java y Python se utilizan interfaces y clases abstractas respectivamente.
+      </p>
+      <pre><code class="codigo">// Ejemplo 1: C++ clase abstracta
+class IControlador {
+public:
+  virtual void ejecutar() = 0;
+};
+
+class ControladorUsuario : public IControlador {
+public:
+  void ejecutar() override { /* lógica de usuario */ }
+};</code></pre>
+
+      <pre><code class="codigo">// Ejemplo 2: Java abstract
+public abstract class BaseDatos {
+  public abstract void conectar();
+}
+
+public class MySQLDB extends BaseDatos {
+  public void conectar() { /* impl. MySQL */ }
+}</code></pre>
+
+      <pre><code class="codigo"># Ejemplo 3: Python con abc
+from abc import ABC, abstractmethod
+
+class Formato(ABC):
+    @abstractmethod
+    def guardar(self, datos):
+        pass
+
+class JSON(Formato):
+    def guardar(self, datos):
+        print("Guardando en JSON")</code></pre>
+    </div>
+  </div>
+
+  <!-- Pregunta 07 -->
+  <div class="pregunta">
+    <p><strong>07.-</strong> ¿Qué diferencia hay entre una clase abstracta y una interfaz?</p>
+    <div class="respuesta">
+      <p>
+        Una clase abstracta puede incluir métodos con implementación parcial y atributos de instancia, mientras que una interfaz declara sólo métodos sin implementación, definiendo contratos puros.
+        En lenguajes como Java, una clase puede implementar múltiples interfaces pero sólo heredar de una clase abstracta, lo que permite mayor flexibilidad en la implementación de comportamientos.
+        En C++, las interfaces se simulan con clases abstractas puras, mientras que en C# se utilizan palabras clave específicas para definir interfaces y clases abstractas.
+      </p>
+      <pre><code class="codigo">// Ejemplo 1: Java abstract vs interface
+abstract class Vehiculo {
+  abstract void arrancar();
+  void apagar() { System.out.println("Apagando"); }
+}
+
+interface Conducible {
+  void conducir();
+}
+
+class Auto extends Vehiculo implements Conducible {
+  void arrancar() { System.out.println("Arrancando"); }
+  public void conducir() { System.out.println("Conduciendo"); }
+}</code></pre>
+
+      <pre><code class="codigo">// Ejemplo 2: C++ puro virtual
+class ISerializable {
+public:
+  virtual void serializar() = 0;
+};</code></pre>
+
+      <pre><code class="codigo">// Ejemplo 3: C# abstract vs interface
+public abstract class Animal {
+  public abstract void hablar();
+}
+
+public interface IVolador {
+  void volar();
+}</code></pre>
+    </div>
+  </div>
+
+  <!-- Pregunta 08 -->
+  <div class="pregunta">
+    <p><strong>08.-</strong> ¿Qué es el principio de responsabilidad única y cómo se aplica en el diseño de clases?</p>
+    <div class="respuesta">
+      <p>
+        El SRP establece que una clase debe tener una única razón para cambiar, es decir, una sola responsabilidad, aumentando la cohesión y reduciendo el acoplamiento.
+        Esto facilita la comprensión, el mantenimiento y la reutilización del código, ya que cada clase se enfoca en una tarea específica.
+        En la práctica, se logra dividiendo funcionalidades en clases separadas, evitando que una clase maneje múltiples responsabilidades.
+      </p>
+      <pre><code class="codigo">// Ejemplo 1: Java SRP
+public class ReporteGenerator {
+  public void generar() { /* genera datos */ }
+}</code></pre>
+
+      <pre><code class="codigo">// Ejemplo 2: C++ separación
+class GeneradorReporte {
+  void generar() { /* generar datos */ }
+};
+class ImpresorReporte {
+  void imprimir() { /* imprimir reporte */ }
+};</code></pre>
+
+      <pre><code class="codigo"># Ejemplo 3: Python SRP
+class LectorArchivo:
+    def leer(self, ruta): pass
+
+class ProcesadorDatos:
+    def procesar(self, datos): pass</code></pre>
+    </div>
+  </div>
+
+  <!-- Pregunta 09 -->
+  <div class="pregunta">
+    <p><strong>09.-</strong> ¿Qué es la sobrecarga de métodos y en qué se diferencia de la sobrescritura?</p>
+    <div class="respuesta">
+      <p>
+        La sobrecarga permite varios métodos con el mismo nombre pero distinta firma dentro de una clase; la sobrescritura redefine en la subclase un método heredado con idéntica firma.
+        La sobrecarga se resuelve en tiempo de compilación, mientras que la sobrescritura se resuelve en tiempo de ejecución.
+        La sobrecarga mejora la legibilidad y reutilización del código, mientras que la sobrescritura permite personalizar el comportamiento de métodos heredados.
+      </p>
+      <pre><code class="codigo">// Ejemplo 1: C++ sobrecarga
+int sumar(int a, int b) { return a+b; }
+double sumar(double a, double b) { return a+b; }</code></pre>
+
+      <pre><code class="codigo">// Ejemplo 2: Java sobrescritura
+class Padre {
+  void mostrar() { System.out.println("Padre"); }
+}
+class Hijo extends Padre {
+  @Override void mostrar() { System.out.println("Hijo"); }
+}</code></pre>
+
+      <pre><code class="codigo">// Ejemplo 3: Python (simulación)
+class Calculadora:
+    def sumar(self, a, b, c=None):
+        return a+b if c is None else a+b+c</code></pre>
+    </div>
+  </div>
+
+  <!-- Pregunta 10 -->
+  <div class="pregunta">
+    <p><strong>10.-</strong> ¿Cómo se implementa la composición sobre la herencia y qué ventajas tiene?</p>
+    <div class="respuesta">
+      <p>
+        La composición (has-a) incluye instancias de otras clases como atributos, ofreciendo menor acoplamiento y mayor flexibilidad que la herencia (is-a).
+        Permite cambiar la implementación de una clase sin afectar a otras, y facilita la reutilización de componentes.
+        La herencia puede llevar a jerarquías complejas y problemas de mantenimiento, mientras que la composición promueve un diseño más limpio y modular.
+      </p>
+      <pre><code class="codigo">// Ejemplo 1: C++ composición
+class Motor { public: void encender() {} };
+class Coche {
+  Motor motor;
+public:
+  void arrancar() { motor.encender(); }
+};</code></pre>
+
+      <pre><code class="codigo">// Ejemplo 2: Java composición
+class Rueda {}
+class Automovil {
+  private Rueda[] ruedas = new Rueda[4];
+}</code></pre>
+
+      <pre><code class="codigo">// Ejemplo 3: Python composición
+class Motor:
+    def encender(self): print("Motor encendido")
+
+class Coche:
+    def __init__(self):
+        self.motor = Motor()
+    def arrancar(self):
+        self.motor.encender()</code></pre>
+    </div>
+  </div>
+</div>
+
+<!-- CUADRO DE REFERENCIAS -->
+<div class="references">
+  <h2>Referencias</h2>
+  <ul>
+    <li><a href="https://www.geeksforgeeks.org/difference-between-structured-and-object-oriented-analysis/" target="_blank">Difference between Structured and Object-Oriented Analysis – GeeksforGeeks</a></li>
+    <li><a href="https://www.tutorialspoint.com/cplusplus/cpp_classes_objects.htm" target="_blank">C++ Classes and Objects – Tutorialspoint</a></li>
+    <li><a href="https://www.tutorialspoint.com/java/java_encapsulation.htm" target="_blank">Java Encapsulation – Tutorialspoint</a></li>
+    <li><a href="https://www.tutorialspoint.com/cplusplus/cpp_inheritance.htm" target="_blank">C++ Inheritance – Tutorialspoint</a></li>
+    <li><a href="https://www.w3schools.com/cpp/cpp_polymorphism.asp" target="_blank">C++ Polymorphism – W3Schools</a></li>
+    <li><a href="https://www.digitalocean.com/community/tutorials/what-is-abstraction-in-oops" target="_blank">What is Abstraction in OOPS? – DigitalOcean</a></li>
+    <li><a href="https://www.geeksforgeeks.org/difference-between-abstract-class-and-interface-in-java/" target="_blank">Abstract Class vs Interface – GeeksforGeeks</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/Single-responsibility_principle" target="_blank">Single-responsibility principle – Wikipedia</a></li>
+    <li><a href="https://www.geeksforgeeks.org/method-overloading-in-java/" target="_blank">Method Overloading in Java – GeeksforGeeks</a></li>
+    <li><a href="https://www.geeksforgeeks.org/difference-between-inheritance-and-composition-in-java/" target="_blank">Composition vs Inheritance – GeeksforGeeks</a></li>
+  </ul>
+</div>
+
+  </main>
+  </body>
+</html>
