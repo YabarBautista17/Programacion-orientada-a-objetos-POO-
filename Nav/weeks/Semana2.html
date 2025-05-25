@@ -46,7 +46,7 @@
       </div>
     </nav>
       <!-- SIDEBAR DE SEMANAS -->
-  <aside class="sidebar">
+<aside class="sidebar">
     <ul class="weeks">
       <!-- Genera una línea por semana, adaptando las rutas -->
       <li><a href="Semana1.html">Semana 1</a></li>
@@ -65,4 +65,93 @@
       <li><a href="Semana14.html">Semana 14(Par)</a></li>
     </ul>
   </aside>
+  <main class="contenido-libre">
+  <div class="container">
+  <h1>Programación Orientada a Objetos en C++: Fundamentos y Manejo de Archivos</h1>
+  <h2>Resumen</h2>
+  <p>La <strong>Programación Orientada a Objetos (POO)</strong> es un paradigma que organiza el software en torno a objetos que encapsulan datos y comportamientos:contentReference[oaicite:100]{index=100}:contentReference[oaicite:101]{index=101}. En C++, este enfoque se implementa con clases que definen estructuras genéricas. Este informe resume los conceptos clave de la POO (clases, objetos y sus cuatro pilares fundamentales) y se enfoca en el manejo de archivos en C++ (uso de <code>ifstream</code>, <code>ofstream</code> y <code>fstream</code> para leer/escribir datos). Se incluyen ejemplos de código ilustrativos y referencias directas a fuentes académicas y documentaciones confiables.</p>
+
+  <h2>Introducción</h2>
+  <p>La POO permite crear programas modulados y fáciles de mantener, al modelar entidades del mundo real como objetos con atributos y métodos:contentReference[oaicite:102]{index=102}:contentReference[oaicite:103]{index=103}. En C++, la biblioteca estándar provee flujos de archivos que facilitan la persistencia de datos en disco. A continuación se presenta una introducción a los fundamentos de la POO y luego se explica detalladamente cómo abrir, leer y escribir archivos en C++, ejemplificando la integración de ambos aspectos.</p>
+
+  <h2>Fundamentos de la POO</h2>
+  <ul>
+    <li><strong>Encapsulación</strong>: Oculta los detalles internos del objeto y expone solo métodos públicos para interactuar con sus datos:contentReference[oaicite:104]{index=104}:contentReference[oaicite:105]{index=105}. Protege el estado interno del objeto.</li>
+    <li><strong>Abstracción</strong>: Expone únicamente las propiedades y comportamientos esenciales del objeto, ocultando complejidades internas:contentReference[oaicite:106]{index=106}:contentReference[oaicite:107]{index=107}. Por ejemplo, un método <em>acelerar()</em> abstrae los detalles del motor de un vehículo.</li>
+    <li><strong>Herencia</strong>: Permite crear nuevas clases derivadas a partir de clases existentes, heredando atributos y métodos:contentReference[oaicite:108]{index=108}:contentReference[oaicite:109]{index=109}. Por ejemplo, una clase <em>Mamífero</em> puede derivar en <em>Perro</em> o <em>Gato</em>, reutilizando código común.</li>
+    <li><strong>Polimorfismo</strong>: Permite usar una misma interfaz (p. ej. método) para objetos de diferentes tipos, obteniendo comportamientos específicos según la clase concreta:contentReference[oaicite:110]{index=110}:contentReference[oaicite:111]{index=111}. Por ejemplo, un puntero a <em>Animal</em> puede invocar <em>hacerSonido()</em> y cada especie emitirá su sonido particular.</li>
+  </ul>
+
+  <h2>Terminología clave</h2>
+  <ul>
+    <li><strong>Clase</strong>: Plantilla que define atributos (datos) y métodos (funciones) comunes a un tipo de objeto:contentReference[oaicite:112]{index=112}:contentReference[oaicite:113]{index=113}.</li>
+    <li><strong>Objeto (instancia)</strong>: Instancia concreta de una clase con estado propio. Un objeto se crea a partir de una clase:contentReference[oaicite:114]{index=114}:contentReference[oaicite:115]{index=115}.</li>
+    <li><strong>Atributo</strong>: Variable miembro de una clase que almacena datos. Define las propiedades del objeto (ej. <em>nombre</em>, <em>edad</em> en <em>Persona</em>):contentReference[oaicite:116]{index=116}.</li>
+    <li><strong>Método</strong>: Función miembro de una clase que opera sobre sus datos internos. Representa el comportamiento del objeto (ej. <em>mostrar()</em>, <em>setEdad()</em>):contentReference[oaicite:117]{index=117}:contentReference[oaicite:118]{index=118}.</li>
+  </ul>
+
+  <h2>Manejo de archivos en C++</h2>
+  <p>Para trabajar con archivos en C++, se incluye la cabecera <code>&lt;fstream&gt;</code>. Las clases principales son <code>ofstream</code> (para escritura), <code>ifstream</code> (para lectura) y <code>fstream</code> (para lectura/escritura):contentReference[oaicite:119]{index=119}:contentReference[oaicite:120]{index=120}. El procedimiento típico es:</p>
+  <ol>
+    <li><strong>Abrir el archivo</strong>: Crear un objeto de flujo con el nombre de archivo. Ejemplo: <code>ofstream fout("datos.txt");</code> abre (o crea) <em>datos.txt</em> para escribir:contentReference[oaicite:121]{index=121}:contentReference[oaicite:122]{index=122}.</li>
+    <li><strong>Verificar apertura</strong>: Comprobar con <code>fout.is_open()</code> o <code>fout.fail()</code> que el archivo se abrió correctamente:contentReference[oaicite:123]{index=123}:contentReference[oaicite:124]{index=124}.</li>
+    <li><strong>Escritura o lectura</strong>: Usar los operadores de inserción (<code><&lt;</code>) o extracción (<code>>&gt;</code>) para escribir o leer datos, igual que con <code>cout</code>/<code>cin</code>. Ejemplo: <code>fout &lt;&lt; "Hola" &lt;&lt; endl;</code> escribe texto en el archivo:contentReference[oaicite:125]{index=125}:contentReference[oaicite:126]{index=126}.</li>
+    <li><strong>Cerrar el archivo</strong>: Invocar <code>fout.close()</code> (o que el objeto salga de ámbito) para liberar recursos:contentReference[oaicite:127]{index=127}:contentReference[oaicite:128]{index=128}.</li>
+  </ol>
+  <p>Además, pueden especificarse modos: p.ej. <code>std::ios::app</code> para agregar al final, o <code>std::ios::binary</code> para modo binario:contentReference[oaicite:129]{index=129}:contentReference[oaicite:130]{index=130}. A continuación un ejemplo de lectura/escritura:</p>
+  <pre><code class="cpp">// Escritura
+ofstream out("archivo.txt");
+if(out.is_open()) {
+    out << "Hola, mundo\n";
+    out.close();
+}
+
+// Lectura
+ifstream in("archivo.txt");
+string s;
+if(in.is_open()) {
+    getline(in, s);
+    cout << "Leímos: " << s << endl;
+    in.close();
+}
+</code></pre>
+
+  <h2>Ejemplos de código</h2>
+  <p>Aquí se incluyen dos ejemplos ilustrativos:</p>
+  <ol>
+    <li><strong>Clase con archivos:</strong> la clase <code>Persona</code> guarda sus datos en un archivo de texto al llamar a <code>guardar()</code>, y los recupera con <code>cargar()</code> usando <code>ofstream</code>/<code>ifstream</code>:contentReference[oaicite:131]{index=131}:contentReference[oaicite:132]{index=132}. Esto demuestra encapsulación de datos y operaciones de E/S.</li>
+    <li><strong>Herencia y binarios:</strong> se definen <code>Documento</code> como clase abstracta base, con clases derivadas <code>Factura</code> y <code>Contrato</code> (uso de herencia). Se muestra además escritura binaria en <code>docs.bin</code> usando <code>ofstream</code> con <code>ios::binary</code>:contentReference[oaicite:133]{index=133}:contentReference[oaicite:134]{index=134}.</li>
+  </ol>
+
+  <h2>Conclusiones</h2>
+  <p>La POO en C++ permite estructuras de código limpias y organizadas, mientras que las clases de archivos (<code>fstream</code>) aportan persistencia de datos. Como se mostró, por ejemplo, es tan sencillo escribir en un archivo como usar <code>cout</code>, gracias a <code>ofstream</code>:contentReference[oaicite:135]{index=135}:contentReference[oaicite:136]{index=136}. La combinación de ambos paradigmas (POO + flujos de archivos) da como resultado programas más robustos, escalables y fáciles de mantener, ya que unen la modularidad de objetos con la capacidad de almacenar información permanentemente.  
+  </p>
+
+  <h2>Referencias</h2>
+  <ol class="ref-list">
+    <li><a href="https://es.wikipedia.org/wiki/Encapsulamiento_(inform%C3%A1tica)">Encapsulamiento (informática) – Wikipedia</a></li>
+    <li><a href="https://es.wikipedia.org/wiki/Abstracci%C3%B3n_(inform%C3%A1tica)">Abstracción (informática) – Wikipedia</a></li>
+    <li><a href="https://es.wikipedia.org/wiki/Polimorfismo_(inform%C3%A1tica)">Polimorfismo (informática) – Wikipedia</a></li>
+    <li><a href="https://es.wikipedia.org/wiki/Herencia_(inform%C3%A1tica)">Herencia (informática) – Wikipedia</a></li>
+    <li><a href="https://es.wikipedia.org/wiki/Objeto_(programaci%C3%B3n)">Objeto (programación) – Wikipedia</a></li>
+    <li><a href="https://es.wikipedia.org/wiki/Programaci%C3%B3n_orientada_a_objetos">Programación orientada a objetos – Wikipedia</a></li>
+    <li><a href="https://es.wikibooks.org/wiki/Programaci%C3%B3n_Orientada_a_Objetos">Programación Orientada a Objetos – Wikilibros</a></li>
+    <li><a href="https://profile.es/blog/que-es-la-programacion-orientada-a-objetos/">¿Qué es la POO? – Profile.es</a></li>
+    <li><a href="https://thecodest.co/es/diccionario/programacion-orientada-a-objetos-oop/">Programación orientada a objetos (OOP) – The Codest</a></li>
+    <li><a href="https://stucom.com/es/blog/conceptos-basicos-de-la-programacion-orientada-a-objetos-poo/">Conceptos básicos de la POO – Stucom</a></li>
+    <li><a href="http://www.programacionenc.net/index.php?option=com_content&view=article&id=69:manejo-de-archivos-en-c">Manejo de archivos en C++ – Programacionenc.net</a></li>
+    <li><a href="https://www2.eii.uva.es/fund_inf/cpp/temas/10_ficheros/ficheros_cpp.html">Ficheros en C++ – UVA Fundamentos de C++</a></li>
+    <li><a href="https://labex.io/es/tutorials/cpp-perform-file-operations-in-c-446086">Operaciones de archivos en C++ – LabEx</a></li>
+    <li><a href="https://conclase.net/c/curso/cap39">Trabajar con ficheros – Curso C++ (ConClase)</a></li>
+    <li><a href="https://www.ibm.com/docs/es/i/7.5.0?topic=reference-inheritance-c-only">Herencia (solo C++) – IBM Docs</a></li>
+    <li><a href="https://cplusplus.com/doc/tutorial/files/">Input/output with files – cplusplus.com</a></li>
+    <li><a href="https://cplusplus.com/reference/fstream/ofstream/">std::ofstream – cplusplus.com Reference</a></li>
+    <li><a href="https://cplusplus.com/reference/fstream/ofstream/ofstream/">std::ofstream::ofstream (constructor) – cplusplus.com Reference</a></li>
+    <li><a href="http://www.programacionenc.net/index.php?option=com_content&view=article&id=69:manejo-de-archivos-en-c&catid=37:programacion-cc&Itemid=55">Manejo de archivos en C++ (cont.) – Programacionenc.net</a></li>
+    <li><a href="https://www.geeksforgeeks.org/file-handling-c-classes/">File Handling through C++ Classes – GeeksforGeeks</a></li>
+  </ol>
+
+  <a class="button" href="Informe_POO_Archivos.pdf" download>Descargar PDF</a>
+</div>
+ </main>
   </body>
