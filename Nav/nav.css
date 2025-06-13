@@ -6,7 +6,17 @@
     font-size: 18px;
 }
 
+:root {
+  --nav-height: 114px; /* O la altura real de tu nav */
+}
+
 .nave {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  height: var(--nav-height);
     background-color: #183A37;
     display: flex;
     justify-content: space-between;
@@ -67,6 +77,12 @@
     color: white;
 }
 
+/* Aplica a todos los contenidos principales */
+main, .contenido-principal, .contenido-adicional, .video-center, .container {
+  padding-top: var(--nav-height);
+  /* Si ya tienen padding-top, puedes quitarlo de ahí */
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .nave {
@@ -84,4 +100,3 @@
         flex-direction: column;
         gap: 10px;
     }
-}
