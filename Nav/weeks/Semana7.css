@@ -1,0 +1,66 @@
+/* Estilo general para sección Semana 7 */
+#semana7 {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f5f7fa;
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 1000px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  color: #333;
+}
+
+/* Títulos */
+#semana7 h2 {
+  font-size: 2rem;
+  color: #2c3e50;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+#semana7 h3 {
+  margin-top: 1.5rem;
+  color: #2980b9;
+}
+
+/* Listas */
+#semana7 ul,
+#semana7 ol {
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+#semana7 li {
+  margin-bottom: 0.5rem;
+}
+
+/* Párrafos */
+#semana7 p {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+/* Enlaces */
+#semana7 a {
+  color: #1e90ff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+#semana7 a:hover {
+  text-decoration: underline;
+}
+
+/* Botones simulados para enlaces */
+#semana7 a::before {
+  content: "🔗 ";
+}
+
+#semana7 a[href$=".pdf"]::before {
+  content: "📄 ";
+}
+
+#semana7 a[href*="youtube.com"]::before {
+  content: "▶️ ";
+}
