@@ -1,46 +1,13 @@
-    .container {
-        background-color: rgba(0,0,0,0.4);
-        padding: 20px;
-        border-radius: 8px;
-        }
-    h1 { color: #FFD700; }
-    h2 { color: #FFD700; margin-top: 30px; }
-    p, ul, ol, li {
-      font-size: 14px;
-      line-height: 1.5;
-    }
-    pre {
-      background: #222;
-      padding: 10px;
-      overflow-x: auto;
-      color: #0F0;
-    }
-    .button {
-  display: inline-block;
-  padding: 12px 28px;
-  background-color: #526039;
-  color: #fff;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: bold;
-  margin-top: 24px;
-  transition: background 0.2s;
-}
-.button:hover {
-  background-color: #183A37;
-}
-    .ref-list {
-      list-style-type: none;
-      padding-left: 0;
-    }
-    .ref-list li a {
-      color: #ADEAFF;
-      text-decoration: none;
-    }
+/* Estilos específicos para Semana 2, si los hubiera, después de mover lo común. */
+/* Por ahora, este archivo puede estar vacío o solo contener overrides muy específicos. */
 
-    main.contenido-libre {
-    margin-right: 220px; /* Espacio para el sidebar */
-    padding: 130px 40px 40px; /* Ajuste de padding superior */
-    max-width: none !important; /* Elimina cualquier límite previo */
-    width: calc(100% - 220px); /* Resta el ancho del sidebar */
+/* Ejemplo: Si Semana 2 tuviera un layout de diagramas único */
+/*
+.diagrama-flujo-semana2 {
+    border: 1px dashed #ADEAFF;
+    padding: 15px;
 }
+*/
+
+/* Los estilos de .container, h1, h2, p, ul, ol, li, pre, .button, .ref-list
+   y main.contenido-libre han sido movidos a weeks-common.css o manejados por nav.css */

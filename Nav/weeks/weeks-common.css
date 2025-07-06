@@ -1,0 +1,195 @@
+/* Estilos comunes para las páginas de semanas (derivados de semana1.css y semana2.css) */
+
+/* Contenedor principal para el contenido de la semana si se usa .container */
+.container {
+    background-color: rgba(0,0,0,0.4); /* de semana2.css */
+    padding: 20px;
+    border-radius: 8px;
+    color: white; /* Asegurar que el texto sea visible */
+}
+
+/* Estilos generales de texto (combinados y promediados) */
+p, ul, ol, li {
+  font-size: 1em; /* Usar em para relatividad, 1em es el base de 18px */
+  line-height: 1.6; /* Un buen valor para legibilidad */
+  color: white; /* Asegurar que el texto sea visible */
+}
+
+/* Títulos */
+h1 {
+    color: #FFD700; /* de semana2.css */
+    font-size: 2.2em; /* Ajustar según jerarquía */
+    margin-bottom: 0.5em;
+}
+
+h2 {
+    color: #FFD700; /* de semana2.css */
+    font-size: 1.8em;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+}
+
+h3 {
+    font-size: 1.5em;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    color: #eee; /* Un color claro para subtítulos */
+}
+
+/* Estilos para la estructura de Preguntas y Respuestas (de semana1.css) */
+.preguntas-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espacio entre preguntas */
+    width: 100%;
+    max-width: 1200px; /* Un ancho máximo razonable */
+    margin: 0 auto; /* Centrar si hay espacio */
+}
+
+.pregunta {
+    background-color: rgba(0, 0, 0, 0.5); /* Unificado */
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.pregunta p strong { /* Para el texto "01.-", etc. */
+    font-weight: bold;
+    color: #FFD700; /* Destacar el número de pregunta */
+}
+
+.pregunta > p { /* El párrafo que contiene la pregunta directamente */
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: white;
+    font-size: 1.3rem;
+    line-height: 1.5;
+}
+
+.respuesta {
+    background-color: rgba(0, 0, 0, 0.3); /* Ligero contraste con la pregunta */
+    padding: 20px;
+    margin-top: 15px;
+    border-radius: 8px;
+}
+
+.respuesta p {
+    font-size: 1rem;
+    line-height: 1.6;
+    word-break: break-word;
+    margin-bottom: 1em; /* Espacio entre párrafos de respuesta */
+}
+
+/* Estilos para bloques de código (de semana1.css, `pre` de semana2.css) */
+pre, .codigo {
+  font-family: 'Fira Code', monospace, Consolas, 'Courier New', Courier;
+  font-size: 0.95em;
+  line-height: 1.5;
+  display: block;
+  background-color: #1e1e1e; /* Fondo oscuro estilo VS Code */
+  color: #d4d4d4;           /* Texto claro sobre fondo oscuro */
+  padding: 15px;
+  border-radius: 5px;
+  overflow-x: auto;
+  margin: 1em 0;
+}
+
+/* Coloreado de sintaxis básico (de semana1.css) */
+.codigo .comment    { color: #6A9955; font-style: italic; }
+.codigo .string     { color: #CE9178; }
+.codigo .keyword    { color: #569CD6; }
+.codigo .function   { color: #DCDCAA; }
+/* Nota: Para que esto funcione, el HTML debe tener <span class="keyword">...</span> etc. */
+
+/* Estilos para la sección de Referencias (de semana1.css) */
+.references {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-left: 4px solid #888;
+  padding: 20px;
+  margin: 2em 0;
+  border-radius: 6px;
+}
+
+.references h2 {
+    font-size: 1.5em; /* Ajustado para consistencia */
+    margin-bottom: 15px;
+    color: #FFD700; /* Coincide con otros h2 */
+}
+
+.references ul {
+    list-style: none;
+    padding: 0;
+}
+
+.references ul li {
+    margin-bottom: 10px;
+}
+
+.references ul li a {
+    color: #ADEAFF; /* Color de enlace de semana2.css, más brillante */
+    text-decoration: none;
+    font-weight: normal; /* No necesita ser bold si el color ya destaca */
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.references ul li a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+/* Botón (de semana2.css) */
+.button {
+  display: inline-block;
+  padding: 12px 28px;
+  background-color: #526039; /* Color de Per-inf y barra-de-busqueda */
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 24px;
+  transition: background-color 0.2s ease;
+  border: none; /* Quitar borde si lo hubiera */
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #183A37; /* Color de .nave */
+}
+
+/* Estilos para video centrado (usado en Semana8.html y planeado para Semana9.html) */
+.video-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0; /* Añadir algo de padding vertical */
+}
+
+.video-center iframe {
+    max-width: 1000px; /* Ancho máximo del video */
+    width: 100%; /* Hacerlo responsive hasta su max-width */
+    height: auto; /* Mantener aspect ratio */
+    aspect-ratio: 16 / 9; /* Común para videos 16:9 */
+    border-radius: 8px; /* Bordes redondeados para el iframe */
+}
+
+/* Limpieza de estilos redundantes de main.contenido-libre en semana1.css y semana2.css */
+/* Esto ahora se maneja en nav.css con la clase .con-sidebar */
+/*
+main.contenido-libre {
+    margin-right: 220px;
+    padding: 130px 40px 40px;
+    max-width: none !important;
+    width: calc(100% - 220px);
+}
+*/
+/* También se eliminan los selectores de .contenido-libre de semana1.css que eran muy específicos */
+/*
+.contenido-libre {
+    margin-right: 270px;
+    padding: 20px;
+    min-height: 100vh;
+}
+*/
+
+/* Ajustes finales y limpieza de comentarios de artefactos */
+/* Los comentarios como :contentReference[oaicite:X]{index=Y} se han eliminado. */
