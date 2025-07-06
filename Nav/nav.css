@@ -7,33 +7,40 @@
 }
 
 :root {
-  --nav-height: 114px; /* O la altura real de tu nav */
+  --nav-height: 114px; /* Altura de la barra de navegación */
+}
+
+body {
+    /* Estilos de fondo movidos de Aslideweeks.css */
+    background: url('https://images-ext-1.discordapp.net/external/R54INX4I0aVk9ZxsmNKd1L6xIfuEJuKPbuaS10SNzV8/https/i.pinimg.com/736x/ef/85/87/ef8587bb8b55e230419146b6f5d75059.jpg?format=webp&width=588&height=930') no-repeat center center fixed;
+    background-size: cover;
+    /* Aseguramos que el padding del body no interfiera con el padding-top del main */
+    padding-top: var(--nav-height);
 }
 
 .nave {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 10;
-  height: var(--nav-height);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    height: var(--nav-height);
     background-color: #183A37;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 114px;
-    padding: 0 20px 0 5px; /* Padding izquierdo 5px, derecho 20px */
+    padding: 0 20px 0 5px;
 }
 
 .perfil-container {
     display: flex;
     align-items: center;
-    gap: 10px; /* Espacio entre imagen y texto */
+    gap: 10px;
 }
 
 .imgperf {
     height: 100px;
-    padding: 5px; /* Ajuste del padding */
+    padding: 5px;
 }
 
 .Per-inf {
@@ -48,7 +55,7 @@
     font-size: 18px;
     font-weight: bold;
     padding: 10px;
-    background-color: #183A37;
+    background-color: #183A37; /* Mismo color que .nave para consistencia */
     border-radius: 5px;
 }
 
@@ -64,6 +71,8 @@
     display: flex;
     gap: 15px;
     list-style: none;
+    padding-left: 0; /* Remover padding por defecto del ul */
+    margin-bottom: 0; /* Remover margen por defecto del ul */
 }
 
 .barra-de-busqueda li a {
@@ -77,26 +86,145 @@
     color: white;
 }
 
-/* Aplica a todos los contenidos principales */
-main, .contenido-principal, .contenido-adicional, .video-center, .container {
-  padding-top: var(--nav-height);
-  /* Si ya tienen padding-top, puedes quitarlo de ahí */
+/* Estilos para el contenido principal y sidebar movidos de Aslideweeks.css */
+/* Contenedor general para el contenido principal de las páginas */
+main.contenido-libre,
+main.contenido-semana,
+.contenido-principal,
+.contenido-adicional,
+.video-center, /* .video-center podría necesitar ajustes si no es un main */
+.container { /* .container es usado en Semana2.html */
+    /* padding-top ya está en el body, así que aquí controlamos el resto del padding y margen */
+    padding: 20px;
+    margin-left: auto; /* Centrado si no hay sidebar */
+    margin-right: auto; /* Centrado si no hay sidebar */
+    color: white; /* Color de texto por defecto para el contenido principal */
+    position: relative;
+    z-index: 1;
+    /* El siguiente margen es para dejar espacio al sidebar */
+    /* Se aplicará condicionalmente o se ajustará en páginas específicas si es necesario */
+    /* margin-right: 220px;  Ajustar esto según la presencia del sidebar */
 }
+
+/* Estilos para la barra lateral de semanas */
+.sidebar {
+    position: fixed;
+    top: var(--nav-height); /* Alineado con la parte inferior del nav */
+    right: 0;
+    width: 200px; /* Ancho del sidebar */
+    height: calc(100vh - var(--nav-height)); /* Altura completa menos el nav */
+    padding-top: 10px;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(4px);
+    z-index: 5;
+    overflow-y: auto;
+}
+
+.sidebar .weeks {
+    list-style: none;
+    margin: 0;
+    padding: 0 10px;
+}
+
+.sidebar .weeks li {
+    margin-bottom: 8px;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 4px;
+}
+
+.sidebar .weeks li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    display: block;
+    padding: 10px;
+    border-radius: 5px; /* Heredado de .pregunta, puede ser redundante */
+    transition: background-color 0.3s ease;
+}
+
+.sidebar .weeks li a:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+/* Ajuste para que el contenido principal no se solape con el sidebar */
+/* Este estilo se aplicará a las páginas que tengan la clase .con-sidebar en el body o main */
+.con-sidebar main.contenido-libre,
+.con-sidebar main.contenido-semana,
+.con-sidebar .video-center, /* Si video-center es el contenedor principal */
+.con-sidebar .container {
+    margin-right: 220px; /* Ancho del sidebar + un pequeño margen */
+    max-width: calc(100% - 220px); /* Para que no se desborde */
+}
+
 
 /* Responsive Design */
 @media (max-width: 768px) {
     .nave {
         flex-direction: column;
-        height: auto;
+        height: auto; /* Altura automática para acomodar elementos */
         padding: 10px;
     }
 
     .perfil-container {
         flex-direction: column;
         align-items: center;
+        margin-bottom: 10px; /* Espacio antes de la hora/búsqueda */
+    }
+
+    .hora-actual {
+        margin-bottom: 10px; /* Espacio antes de la barra de búsqueda */
     }
 
     .barra-de-busqueda ul {
         flex-direction: column;
         gap: 10px;
+        align-items: center; /* Centrar items del menú */
     }
+
+    .sidebar {
+        position: relative; /* Cambiar a relativo para que fluya con el contenido */
+        width: 100%;
+        height: auto;
+        top: auto;
+        margin-top: var(--nav-height); /* Espacio después del nav colapsado */
+        /* Ocultar el padding-top original del body para el sidebar en modo responsive */
+        padding-top: 0;
+    }
+
+    body {
+      padding-top: 0; /* Quitar el padding-top del body en responsive si el nav es auto */
+                      /* El nav ya no es fijo en la parte superior en este breakpoint */
+    }
+
+    /* Ajustar el contenido principal cuando el sidebar se vuelve relativo */
+    .con-sidebar main.contenido-libre,
+    .con-sidebar main.contenido-semana,
+    .con-sidebar .video-center,
+    .con-sidebar .container {
+        margin-right: 0; /* Sin margen a la derecha */
+        max-width: 100%;
+        padding-top: 20px; /* Restaurar padding superior si es necesario */
+    }
+
+    /* Ajustar el padding-top del contenido si el nav sigue siendo fijo pero más alto */
+    /* Si el nav sigue fijo y su altura es 'auto', necesitaríamos JS para calcular la altura
+       y ajustar el padding-top del body/main.
+       Por simplicidad, asumimos que si el nav es 'auto', el padding-top del body se maneja
+       para que el contenido no se oculte, o el nav ya no es 'fixed'.
+       Si .nave sigue siendo fixed y height: auto, el padding-top del body tiene que ser dinámico.
+       La solución actual hace que el body no tenga padding-top y el sidebar tenga un margin-top.
+       Si .nave ya no es fixed, el padding-top: var(--nav-height) en body no tiene sentido.
+    */
+    body {
+        /* Si .nave ya NO es fixed en este breakpoint */
+         padding-top: 0;
+    }
+    main.contenido-libre,
+    main.contenido-semana,
+    .contenido-principal,
+    .contenido-adicional,
+    .video-center,
+    .container {
+        padding-top: 20px; /* Espacio por si el nav adaptable ocupa espacio */
+    }
+}
